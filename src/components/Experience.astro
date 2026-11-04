@@ -1,0 +1,49 @@
+---
+const roles = [
+  {
+    period: 'Ago. 2024 — actualidad',
+    role: 'Analista de sistemas',
+    company: 'CASUR · Rivas, Nicaragua',
+    summary: 'Digitalización de procesos operativos con Power Apps y Power Automate, análisis de necesidades con usuarios y contribución a varias aplicaciones moviles .NET MAUI.',
+    skills: ['Power Platform', '.NET MAUI', 'APIs', 'Automatización'],
+    tone: 'border-emerald-500',
+  },
+  {
+    period: 'Ago. 2022 — ago. 2024',
+    role: 'WebMaster Jr. / Freelance',
+    company: 'Profesional independiente · Remoto',
+    summary: 'Administración de dominios y hosting, auditorías SEO y desarrollo de interfaces con JavaScript y React.',
+    skills: ['JavaScript', 'React', 'SEO', 'Hosting'],
+    tone: 'border-sky-500',
+  },
+  {
+    period: 'May. 2021 — ago. 2022',
+    role: 'Ingeniero de soporte',
+    company: 'Technology Consulting Group S.A. · Rivas',
+    summary: 'Soporte técnico a usuarios, resolución de incidencias e infraestructura de TI en entornos de trabajo bilingües.',
+    skills: ['Soporte técnico', 'Infraestructura', 'Inglés técnico'],
+    tone: 'border-amber-500',
+  },
+];
+---
+
+<section id="experiencia" class="scroll-mt-24 space-y-7 py-8">
+  <div class="border-b border-slate-200 pb-5 dark:border-slate-800">
+    <p class="code-font text-xs uppercase text-emerald-700 dark:text-emerald-400">Historia profesional</p>
+    <h2 class="mt-2 text-3xl font-bold text-slate-950 dark:text-white">Trayectoria</h2>
+    <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400">Experiencia en desarrollo de software, transformación digital y operación de sistemas.</p>
+  </div>
+  <ol class="grid gap-4 lg:grid-cols-3">
+    {roles.map(({ period, role, company, summary, skills, tone }) => (
+      <li class:list={["border-l-2 bg-white p-5 dark:bg-slate-900 sm:p-6", tone, "border-y border-r border-slate-200 dark:border-y-slate-800 dark:border-r-slate-800"]}>
+        <p class="code-font text-xs text-slate-500">{period}</p>
+        <h3 class="mt-3 text-lg font-bold text-slate-950 dark:text-white">{role}</h3>
+        <p class="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">{company}</p>
+        <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">{summary}</p>
+        <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tecnologías y competencias">
+          {skills.map((skill) => <li class="border border-slate-200 px-2 py-1 text-xs text-slate-600 dark:border-slate-700 dark:text-slate-400">{skill}</li>)}
+        </ul>
+      </li>
+    ))}
+  </ol>
+</section>

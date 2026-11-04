@@ -1,0 +1,49 @@
+---
+import { ArrowDownRight, Code2, Download } from 'lucide-react';
+---
+
+<section id="inicio" class="grid scroll-mt-24 items-center gap-12 py-10 md:grid-cols-[1.1fr_0.9fr] md:py-16">
+  <div class="space-y-6">
+    <p class="inline-flex items-center gap-2 border-l-2 border-emerald-500 pl-3 text-sm font-semibold text-slate-600 dark:text-slate-300">
+      <span class="size-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+      Disponible para proyectos y consultoría
+    </p>
+    <h1 class="max-w-3xl text-4xl font-extrabold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+      Arquitectura backend <span class="text-emerald-600 dark:text-emerald-400">y desarrollo mobile</span>
+    </h1>
+    <p class="max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg">
+      Soy <strong class="text-slate-900 dark:text-slate-100">Michael Ponce</strong>, ingeniero de software enfocado en sistemas con .NET, C# y SQL, automatización de entregas y aplicaciones Android listas para producción.
+    </p>
+    <ul class="flex flex-wrap gap-2 text-xs" aria-label="Tecnologías principales">
+      {['.NET / C#', 'SQL Server / PostgreSQL', 'Azure DevOps', 'Android', 'Astro'].map((skill) => (
+        <li class="code-font border border-slate-200 bg-white px-2.5 py-1.5 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">{skill}</li>
+      ))}
+    </ul>
+    <div class="flex flex-wrap gap-3 pt-2">
+      <a class="inline-flex items-center gap-2 rounded-md bg-emerald-500 px-5 py-3 text-sm font-bold text-slate-950 transition-colors hover:bg-emerald-400" href="#apps">
+        Explorar aplicaciones <ArrowDownRight size={17} aria-hidden="true" />
+      </a>
+      <button class="inline-flex items-center gap-2 rounded-md border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition-colors hover:border-sky-500 dark:border-slate-700 dark:text-slate-200" type="button" data-cv-open>
+        <Download size={16} aria-hidden="true" /> Perfil profesional
+      </button>
+    </div>
+  </div>
+
+  <div class="relative border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/20 sm:p-7">
+    <div class="mb-5 flex items-center justify-between border-b border-slate-200 pb-4 dark:border-slate-800">
+      <div class="flex items-center gap-2" aria-hidden="true"><span class="size-2.5 rounded-full bg-rose-500"></span><span class="size-2.5 rounded-full bg-amber-400"></span><span class="size-2.5 rounded-full bg-emerald-500"></span></div>
+      <span class="code-font text-xs text-slate-500">developer-profile.cs</span>
+    </div>
+    <pre class="code-font overflow-x-auto text-xs leading-7 text-slate-700 dark:text-slate-300"><code><span class="text-sky-600 dark:text-sky-400">public class</span> Developer
+&#123;
+  <span class="text-sky-600 dark:text-sky-400">public string</span> Name =&gt; <span class="text-emerald-600 dark:text-emerald-400">"Michael Ponce"</span>;
+  <span class="text-sky-600 dark:text-sky-400">public string</span> Focus =&gt; <span class="text-emerald-600 dark:text-emerald-400">"Backend &amp; Mobile"</span>;
+  <span class="text-sky-600 dark:text-sky-400">public string[]</span> Stack =&gt;
+  [ <span class="text-amber-600 dark:text-amber-400">".NET"</span>, <span class="text-amber-600 dark:text-amber-400">"SQL"</span>, <span class="text-amber-600 dark:text-amber-400">"Android"</span> ];
+&#125;</code></pre>
+    <div class="mt-5 flex items-center gap-2 border-t border-slate-200 pt-4 text-xs text-slate-500 dark:border-slate-800">
+      <Code2 size={15} className="text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+      Ingeniería con foco en rendimiento, mantenibilidad y entrega continua
+    </div>
+  </div>
+</section>

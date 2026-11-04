@@ -1,0 +1,57 @@
+---
+import { ArrowUpRight, CheckSquare, Image } from 'lucide-react';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  apps: CollectionEntry<'apps'>[];
+}
+
+const { apps } = Astro.props;
+---
+
+<section id="apps" class="scroll-mt-24 space-y-7 py-8">
+  <div class="flex flex-col gap-3 border-b border-slate-200 pb-5 dark:border-slate-800 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p class="code-font text-xs uppercase text-emerald-700 dark:text-emerald-400">Ecosistema Android</p>
+      <h2 class="mt-2 text-3xl font-bold text-slate-950 dark:text-white">Aplicaciones</h2>
+      <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400">Productos móviles centrados en utilidad, privacidad y una experiencia cuidada.</p>
+    </div>
+    <span class="text-sm text-slate-500">{apps.length} proyectos</span>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    {apps.map((app) => {
+      const isTaskFlow = app.id === 'taskflow-pro';
+      const Icon = isTaskFlow ? CheckSquare : Image;
+      const privacyHref = isTaskFlow ? '/legal/privacidad-taskflow/' : '/legal/privacidad/';
+      return (
+        <article class="flex min-h-56 flex-col justify-between border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div>
+            <div class="flex items-start justify-between gap-4">
+              <div class:list={["grid size-12 place-items-center", isTaskFlow ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400" : "bg-sky-500/10 text-sky-700 dark:text-sky-400"]}>
+                <Icon size={22} aria-hidden="true" />
+              </div>
+              <span class="border border-slate-200 px-2.5 py-1 text-xs text-slate-600 dark:border-slate-700 dark:text-slate-400">{app.data.category}</span>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">{app.data.name}</h3>
+            <p class="mt-2 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-400">{app.data.summary}</p>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4 dark:border-slate-800">
+            <a class="text-xs text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-emerald-600 dark:hover:text-emerald-400" href={privacyHref}>Privacidad</a>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-600 dark:text-emerald-400" href={app.data.playStoreUrl} target="_blank" rel="noreferrer">
+              Ver en Google Play <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+      );
+    })}
+    <article class="flex min-h-56 flex-col justify-between border border-dashed border-slate-300 bg-slate-100/70 p-5 dark:border-slate-700 dark:bg-slate-900/50 sm:p-6">
+      <div>
+        <p class="code-font text-xs uppercase text-amber-700 dark:text-amber-400">En desarrollo</p>
+        <h3 class="mt-3 text-xl font-bold text-slate-950 dark:text-white">DevLog Viewer</h3>
+        <p class="mt-2 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-400">Una herramienta para filtrar y explorar registros JSON y XML con rapidez.</p>
+      </div>
+      <p class="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500 dark:border-slate-800">Próximo proyecto · Android</p>
+    </article>
+  </div>
+</section>

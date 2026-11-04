@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layout/BaseLayout.astro';
+
+const updatedAt = '16 de octubre de 2026';
+---
+
+<BaseLayout title="Política de privacidad de TaskFlow Pro" description="Cómo TaskFlow Pro almacena los datos localmente y utiliza Google AdMob.">
+  <main class="min-h-screen bg-slate-50 px-6 py-12 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <article class="prose dark:prose-invert mx-auto max-w-3xl">
+      <h1>Política de privacidad de TaskFlow Pro</h1>
+      <p>Última actualización: {updatedAt}</p>
+      <p>Esta política se aplica a la aplicación TaskFlow Pro («la aplicación»), publicada por Michael Ponce. Describe qué información se procesa, dónde se almacena y cómo se usan los anuncios. Para consultas, contacta al desarrollador mediante la información de contacto indicada en la ficha de la aplicación.</p>
+
+      <h2>Almacenamiento local</h2>
+      <p>TaskFlow Pro adopta un enfoque Local-First. Las tareas, proyectos, preferencias y demás contenido que introduces se guardan en una base de datos SQLite en el dispositivo. La aplicación no requiere una cuenta y el desarrollador no recibe ni mantiene una copia de ese contenido en sus propios servidores. Los datos locales permanecen bajo el control del sistema operativo y se eliminan normalmente al borrar los datos de la aplicación o desinstalarla. Si creas una copia de seguridad del dispositivo, su tratamiento depende de la configuración y el proveedor que hayas elegido.</p>
+      <p>La aplicación utiliza permisos del dispositivo solo cuando una función los necesita. El sistema operativo puede procesar información técnica para que la aplicación funcione y para diagnosticar errores.</p>
+
+      <h2>Google AdMob</h2>
+      <p>La aplicación puede mostrar anuncios mediante Google AdMob. Para servir, limitar, medir y, cuando esté permitido, personalizar anuncios, Google y sus socios pueden procesar identificadores publicitarios, dirección IP, información general del dispositivo, interacciones con anuncios y datos de diagnóstico. Esos datos pueden transmitirse a los servicios de Google; no forman parte de la base de tareas SQLite administrada por la aplicación. El tratamiento, la conservación y las opciones disponibles dependen de Google, la configuración del dispositivo y la región.</p>
+      <p>Puedes revisar la configuración de anuncios y privacidad del dispositivo, restablecer o limitar el identificador publicitario cuando el sistema lo permita, y consultar la política de privacidad de Google. Las opciones pueden cambiar según la versión de Android y tu ubicación. La aplicación no vende tus tareas ni las utiliza para publicidad.</p>
+
+      <h2>Menores, seguridad y cambios</h2>
+      <p>La aplicación no está diseñada para solicitar directamente información personal a menores. Ningún método de almacenamiento o transmisión es completamente seguro; protege el acceso al dispositivo y mantén actualizado Android. Esta política puede actualizarse si cambian la aplicación, sus proveedores o los requisitos legales. La fecha al inicio indica la versión vigente. El uso continuado de la aplicación tras una actualización estará sujeto a la política revisada.</p>
+    </article>
+  </main>
+</BaseLayout>

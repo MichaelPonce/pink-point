@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layout/BaseLayout.astro';
+import AdUnit from '../../layout/AdUnit.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article class="max-w-3xl mx-auto px-4 py-12 prose dark:prose-invert">
+    <h1 class="text-3xl font-bold mb-2">{entry.data.title}</h1>
+    <span class="text-sm text-slate-500">{entry.data.pubDate.toLocaleDateString()}</span>
+
+    <AdUnit slotId="1234567890" format="fluid" />
+
+    <div class="mt-8">
+      <Content />
+    </div>
+
+    <AdUnit slotId="0987654321" format="auto" />
+  </article>
+</BaseLayout>

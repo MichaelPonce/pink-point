@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layout/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AppsGrid from '../components/AppsGrid.astro';
+import Services from '../components/Services.astro';
+import Experience from '../components/Experience.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import Contact from '../components/Contact.astro';
+import AdUnit from '../layout/AdUnit.astro';
+
+const [apps, allPosts] = await Promise.all([
+  getCollection('apps'),
+  getCollection('blog'),
+]);
+const posts = allPosts
+  .sort((left, right) => right.data.pubDate.valueOf() - left.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Michael Ponce | Backend & Mobile Developer" description="Ingeniero de software especializado en .NET, bases de datos, Azure DevOps y aplicaciones Android.">
+  <main class="mx-auto max-w-7xl space-y-14 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <Hero />
+    <AppsGrid apps={apps} />
+    <Services />
+    <AdUnit slotId="1234567890" format="fluid" />
+    <BlogPreview posts={posts} />
+    <Experience />
+    <Contact />
+  </main>
+</BaseLayout>

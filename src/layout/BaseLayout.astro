@@ -2,6 +2,7 @@
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CvDialog from '../components/CvDialog.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -19,6 +20,7 @@ const { title, description = "Desarrollador Full-Stack & Mobile" } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <Analytics />
     
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">

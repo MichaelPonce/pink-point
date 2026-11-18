@@ -5,12 +5,25 @@ import CvDialog from '../components/CvDialog.astro';
 import Analytics from '../components/Analytics.astro';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string | URL;
+  type?: 'website' | 'article';
 }
 import '../styles/global.css';
 
-const { title, description = "Desarrollador Full-Stack & Mobile" } = Astro.props;
+const {
+  title = 'Michael Ponce | Desarrollador Full-Stack & Mobile',
+  description = 'Desarrollador de software especializado en backend, aplicaciones móviles y soluciones cloud.',
+  image = '/og-image.svg',
+  canonicalURL,
+  type = 'website',
+} = Astro.props;
+const site = Astro.site ?? new URL('https://michaelponcedev.com');
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonical = new URL(canonicalURL ?? pathname, site);
+const socialImage = new URL(image, site);
 ---
 
 <!doctype html>
@@ -20,6 +33,23 @@ const { title, description = "Desarrollador Full-Stack & Mobile" } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="MichaelPonce.dev" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Michael Ponce: desarrollo backend y aplicaciones móviles" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <Analytics />
     
     <!-- Fuentes -->
